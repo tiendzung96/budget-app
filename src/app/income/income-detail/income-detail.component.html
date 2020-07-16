@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12">
+      <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <div>
+              <span class="title">
+                {{ income?.name }}
+              </span>
+              <span class="title pull-right income-color">
+                {{ income?.amount | currency  }}
+              </span>
+            </div>
+              <div class="pull-left btn-toolbar">
+                      <a class="btn btn-primary" (click)="onEditIncome()">Edit</a>
+                      <a class="btn btn-danger" (click)="onDelete()">Delete</a>
+              </div>
+          </div>
+          <div class="panel-body">
+              <div class="list-group-item-heading">
+                  Date: {{ income?.date | date }}
+              </div>
+              <div class="list-group-item-heading">
+                  Description: {{ income?.description }}
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
