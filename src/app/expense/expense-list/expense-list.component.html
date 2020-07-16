@@ -1,1 +1,24 @@
-<p>expense-list works!</p>
+<div class="row">
+  <div class="panel panel-default">
+      <div class="col-xs-12 panel-heading">
+        <div>
+          <span class="title pad-left-right">Expenses</span>
+          <span class="pull-right"  style="padding-top: 5px;">
+            <a class="btn btn-danger" [routerLink]="['new']">Add Expense</a>
+          </span>
+        </div>
+        <div class="col-xs-12">
+          <span class="title expense-color">{{ totalExpense | currency }}</span>
+        </div>
+      </div>
+
+      <div class="panel-body">
+          <div class="row">
+              <div class="col-xs-12">
+                  <app-expense-item *ngFor="let expense of expenses" [expense]="expense">
+                  </app-expense-item>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

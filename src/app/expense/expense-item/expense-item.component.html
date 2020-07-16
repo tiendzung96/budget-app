@@ -1,1 +1,9 @@
-<p>expense-item works!</p>
+<a [routerLink]="expense.id" routerLinkActive="active" class="list-group-item clearfix add-spacing-around">
+  <div class="pull-left">
+    <h4>{{ expense?.date | date : 'mediumDate' }}</h4>
+    <p>{{ expense?.name }}</p>
+  </div>
+  <span class="pull-right">
+    <h3 class="expense-color">{{ expense?.amount | currency  }}</h3>
+  </span>
+</a>

@@ -1,0 +1,10 @@
+.add-spacing-around{
+  margin-top: 10px !important;
+}
+
+
+.list-group-item.active{
+  background-color: #ececec;
+  color: black;
+  border-color: honeydew;
+}

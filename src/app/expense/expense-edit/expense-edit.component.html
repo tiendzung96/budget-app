@@ -1,1 +1,73 @@
-<p>expense-edit works!</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control required"
+            size="120"
+            max="120"
+            required
+            name="name"
+            #name="ngModel"
+            [ngModel]="expense?.name">
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            class="form-control required"
+            size="120"
+            max="255"
+            required
+            name="amount"
+            #amount="ngModel"
+            [ngModel]="expense?.amount"
+            min="0">
+            <div class="alert alert-danger" style="margin-top: 5px;" *ngIf="!amount.valid && amount.dirty">Enter a valid number for amount.</div>
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="date">Date</label>
+          <input
+            type="date"
+            id="date"
+            class="form-control invalid"
+            size="150"
+            max="255"
+            name="date"
+            #date="ngModel"
+            [ngModel] ="expense?.date | date:'yyyy-MM-dd'"
+            >
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            class="form-control invalid"
+            size="150"
+            max="255"
+            name="description"
+            #description="ngModel"
+            [ngModel]="expense?.description"
+            >
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="(amount.touched && !amount.valid) || (name.touched && !name.valid)">The Name and Amount are required.</div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

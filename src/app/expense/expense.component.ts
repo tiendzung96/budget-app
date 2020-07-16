@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Expense } from './expense.model';
+import { ExpenseService } from './expense.service';
 
 @Component({
   selector: 'app-expense',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
+  selectedExpense: Expense;
 
-  constructor() { }
+  constructor(private expenseService: ExpenseService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.expenseService.expenseSelectedEvent.subscribe(
+      (expense: Expense) => {
+        this.selectedExpense = expense;
+      }
+    )
   }
 
 }
