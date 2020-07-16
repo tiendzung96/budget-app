@@ -7,7 +7,7 @@
                 {{ income?.name }}
               </span>
               <span class="title pull-right income-color">
-                {{ income?.amount | currency  }}
+                {{ income?.amount | currency }}
               </span>
             </div>
               <div class="pull-left btn-toolbar">
@@ -17,10 +17,10 @@
           </div>
           <div class="panel-body">
               <div class="list-group-item-heading">
-                  Date: {{ income?.date | date }}
+                  <b>Date:</b> {{ income?.date | date  : 'fullDate'  }}
               </div>
               <div class="list-group-item-heading">
-                  Description: {{ income?.description }}
+                  <b>Description:</b> {{ income?.description }}
               </div>
           </div>
       </div>

@@ -23,7 +23,6 @@ export class IncomeEditComponent implements OnInit {
       (params: Params) => {
 
         this.id = params['id'];
-        console.log(this.id);
         if (!this.id){
           this.editMode = false;
           return;
@@ -39,12 +38,10 @@ export class IncomeEditComponent implements OnInit {
 
               this.editMode =  true;
               this.income = JSON.parse(JSON.stringify(this.originalIncome));
-              console.log(this.income);
             }
           );
       }
     );
-    console.log(this.editMode);
   }
 
   onCancel(){

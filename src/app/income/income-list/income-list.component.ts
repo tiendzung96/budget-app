@@ -23,10 +23,15 @@ export class IncomeListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.incomeService.incomeChangedEvent.subscribe((incomes: Income[]) =>{
       this.incomes = incomes;
-
+      this.totalIncome = 0;
+      this.incomes.forEach(income => this.totalIncome += Number(income.amount));
+      console.log(this.totalIncome);
     })
     this.subscription = this.incomeService.incomeListChangedEvent.subscribe((incomeList: Income[]) => {
       this.incomes = incomeList;
+      this.totalIncome = 0;
+      this.incomes.forEach(income => this.totalIncome += Number(income.amount));
+      console.log(this.totalIncome);
     });
 
   }

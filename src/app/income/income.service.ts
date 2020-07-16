@@ -42,9 +42,6 @@ export class IncomeService {
     .subscribe(
       (responseData) =>{
         this.incomes = responseData.incomes;
-        let totalIncome: number = 0;
-        this.incomes.forEach(income => totalIncome += Number(income.amount));
-        console.log(totalIncome);
         this.sortAndSend();
       },
       (error: any) => {

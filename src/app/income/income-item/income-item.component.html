@@ -1,7 +1,7 @@
 <a [routerLink]="income.id" routerLinkActive="active" class="list-group-item clearfix add-spacing-around">
   <div class="pull-left">
       <h4>{{ income?.name }}</h4>
-      <p>{{ income?.date | date }}</p>
+      <p>{{ income?.date | date  : 'fullDate' }}</p>
   </div>
   <span class="pull-right">
     <h3 class="income-color">{{ income?.amount | currency  }}</h3>
