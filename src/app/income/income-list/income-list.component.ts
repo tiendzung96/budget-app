@@ -17,7 +17,6 @@ export class IncomeListComponent implements OnInit, OnDestroy {
 
   constructor(private incomeService: IncomeService, private router: Router, private route: ActivatedRoute ) {
     this.incomeService.getIncomes();
-    // this.totalIncome = this.incomeService.getTotalIncome();
   }
 
   ngOnInit() {
@@ -25,13 +24,11 @@ export class IncomeListComponent implements OnInit, OnDestroy {
       this.incomes = incomes;
       this.totalIncome = 0;
       this.incomes.forEach(income => this.totalIncome += Number(income.amount));
-      console.log(this.totalIncome);
     })
     this.subscription = this.incomeService.incomeListChangedEvent.subscribe((incomeList: Income[]) => {
       this.incomes = incomeList;
       this.totalIncome = 0;
       this.incomes.forEach(income => this.totalIncome += Number(income.amount));
-      console.log(this.totalIncome);
     });
 
   }

@@ -13,6 +13,7 @@ export class IncomeService {
   incomeChangedEvent = new EventEmitter<Income[]>();
   incomeListChangedEvent = new Subject<Income[]>();
   maxIncomeId: number;
+  incomeTotal: number;
 
 
   constructor(private http: HttpClient) { }
